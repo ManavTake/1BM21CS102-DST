@@ -1,0 +1,41 @@
+#include<stdio,h>
+#define QSIZE 5
+
+void insert()
+{
+    if(count==QSIZE)
+    printf("Queue Overflow\n");
+    else
+    {
+        (*rear)=[(*rear)++]%QSIZE;
+        q[*rear]=item;
+        count++;
+    }
+}
+
+int delete(int q[],int *front,int *rear)
+{
+    int del_item;
+    if(count==0)
+    printf("Queue underflow\n");
+    else
+    {
+        del_item=q[*front];
+        *front=[(*front)++]%QSIZE;
+        count--;
+        return del_item;
+    }
+}
+
+
+void display(int q[], int *front)
+{
+    int temp i;
+    temp=*front;
+    
+    for(i=0;i<count;i++)
+    {
+        printf("%d",q[temp]);
+        temp=[(temp++)%QSIZE];
+    }
+}
