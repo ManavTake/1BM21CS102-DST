@@ -1,0 +1,72 @@
+NODE del_beg(NODE first)
+{
+	NODE temp;
+	if(first==NULL)
+	{
+		printf("list is empty\n");
+		return first;
+	}
+	temp=first;
+	temp=temp->next;
+	printf("Item deleted =%d",first->value);
+	free(first);
+	return temp;
+	
+}
+NODE del_end(NODE first)
+{
+	NODE curr,prev;
+	if(first==NULL)
+	{
+		printf("list is empty\n");
+		return first;
+	}
+	prev=NULL;
+	curr=first;
+	while(curr->next!=NULL)
+	{
+		prev=curr;
+		curr=curr->next;
+	}
+	prev->next=NULL;
+	printf("%d",curr->value);
+	free(curr);
+	return first;
+}
+NODE del_value(NODE first,int key)
+{
+	NODE prev,curr;
+	if(first==NULL)
+	{
+		printf("list is empty\n");
+		return first;
+	}
+	curr=first;
+	if(curr->value==key)
+	{
+		printf("Item deleted =%d",curr->value);
+		first=first->next;
+		free(curr);
+		return first;
+	}
+	prev=NULL;
+	curr=first;
+	while(curr->value!=key && curr!=NULL)
+	{
+		prev=curr;
+		curr=curr->next;
+	}
+	if(curr->value==key)
+	{
+		prev->next=curr->next;
+		printf("Item deleted %d=",curr->value);
+		free(curr);
+		return first;
+	}
+	if(curr==NULL)
+	{
+		printf("End of list reached and item not found\n");
+		return first;
+	}
+	
+}
