@@ -44,7 +44,7 @@ NODE insert_end(NODE first,int item)
 	{
 		return new;
 	}
-	if(first==NULL)
+	if(first->next==NULL)
 	{
 		first->next=new;
 		return first;
